@@ -14,16 +14,16 @@
     <!--Replace with your tailwind.css once created-->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
     <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
-
+    
   </head>
-  <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+  <body class="leading-normal tracking-normal" style="font-family: 'Source Sans Pro', sans-serif;">
     <!--Nav-->  
     <nav id="header" class="fixed w-full z-30 top-0 text-white">
       <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
         <div class="pl-4 flex items-center">
           <img src="images/logo.png" alt="Logo" class="h-20 w-20">
         </div>
-
+      
 
         <div class="block lg:hidden pr-4">
           <button id="nav-toggle" class="flex items-center p-1 text-pink-800 hover:text-gray-900 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
@@ -66,9 +66,88 @@
       </div>
       <hr class="border-b border-yellow-100" />
     </nav>
-    
+  
+
+    <div class="pt-24 mt-4">
+      <div class="container mx-auto flex flex-wrap flex-col md:flex-row items-center">
+        <!-- <img src="images/logo.png" alt="Logo" class="h-20 w-20"> -->
+        <img src="images/image1.png" alt="Background">
+
+      </div>
+    </div>
+ 
+
+      <div class="container pl-10 flex flex-wrap flex-col md:flex-row my-8">
+        <!--Left Col-->
+        <div class="flex flex-col w-full md:w-2/5 justify-center items-start md:text-left">
+          <h1 class=" text-3xl font-bold leading-tight mb-4">
+            ABOUT US
+          </h1>
+          <p class="leading-normal text-lg mb-8">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur risus eget urna efficitur, at vestibulum tortor rutrum. Vestibulum euismod neque eget justo posuere dapibus. Curabitur id quam leo. Sed feugiat, justo ac ultrices accumsan, nulla metus commodo justo, in pellentesque metus nunc in neque. Praesent blandit fringilla urna, sed tempus enim vestibulum in. Nulla sollicitudin elementum ipsum, sit amet facilisis velit mattis vel.
+          </p>
+          <p class="leading-normal text-lg mb-8">
+            In id suscipit eros. Mauris tincidunt odio in sapien aliquet consectetur. Sed vel convallis nunc, eu viverra mauris. Quisque egestas, nisi a vulputate fringilla, ligula tortor interdum elit, id dignissim velit erat vitae urna. Cras hendrerit hendrerit nisl at pharetra. Fusce vulputate neque vitae magna cursus fermentum.
+          </p>
+          <p class="leading-normal text-lg mb-8">
+            Phasellus eget neque in velit rhoncus scelerisque. Nulla facilisi. Nullam varius nulla in justo cursus, ut feugiat sem rutrum. Vivamus tincidunt finibus ipsum, id malesuada metus dignissim eu. Aenean quis elit eu nulla tincidunt posuere. Integer sodales magna id eros auctor, id lacinia eros tincidunt. Duis eu feugiat ex, eu hendrerit mi.
+          </p>
+          
+        </div>
+        <!--Right Col-->
+        <div class="w-full md:w-3/5 py-6 text-center">
+          <img class="md:w-4/5" src="images/image2.png" />
+        </div>
+      </div>
+ 
+    <script>
+      var scrollpos = window.scrollY;
+      var header = document.getElementById("header");
+      var navcontent = document.getElementById("nav-content");
+      var navaction = document.getElementById("navAction");
+      var brandname = document.getElementById("brandname");
+      var toToggle = document.querySelectorAll(".toggleColour");
+
+      document.addEventListener("scroll", function () {
+        /*Apply classes for slide in bar*/
+        scrollpos = window.scrollY;
+
+        if (scrollpos > 10) {
+          header.classList.add("bg-white");
+          navaction.classList.remove("bg-white");
+          navaction.classList.add("gradient");
+          navaction.classList.remove("text-gray-800");
+          navaction.classList.add("text-white");
+          //Use to switch toggleColour colours
+          for (var i = 0; i < toToggle.length; i++) {
+            toToggle[i].classList.add("text-gray-800");
+            toToggle[i].classList.remove("text-white");
+          }
+          header.classList.add("shadow");
+          navcontent.classList.remove("bg-gray-100");
+          navcontent.classList.add("bg-white");
+        } else {
+          header.classList.remove("bg-white");
+          navaction.classList.remove("gradient");
+          navaction.classList.add("bg-white");
+          navaction.classList.remove("text-white");
+          navaction.classList.add("text-gray-800");
+          //Use to switch toggleColour colours
+          for (var i = 0; i < toToggle.length; i++) {
+            toToggle[i].classList.add("text-white");
+            toToggle[i].classList.remove("text-gray-800");
+          }
+
+          header.classList.remove("shadow");
+          navcontent.classList.remove("bg-white");
+          navcontent.classList.add("bg-gray-100");
+        }
+      });
+    </script>
     <script>
       /*Toggle dropdown list*/
+      /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
+
       var navMenuDiv = document.getElementById("nav-content");
       var navMenu = document.getElementById("nav-toggle");
 
