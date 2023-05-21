@@ -3,3 +3,10 @@
 @import 'tailwindcss/utilities';
 
 
+
+  .square-box {
+    width: 200px;
+    height: 200px;
+  }
+
+  
